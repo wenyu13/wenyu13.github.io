@@ -8,7 +8,7 @@
     <author>
       <name>温屿</name>
     </author>
-    <updated>2025-04-22T12:50:44.265Z</updated>
+    <updated>2025-04-24T15:46:37.000Z</updated>
     <entry>
         <id>https://151064.xyz/%E4%BA%86%E8%A7%A3Python(%E5%AD%A6%E4%B9%A0%E5%A4%A7%E7%BA%B2).html</id>
         <title>Python</title>
@@ -978,8 +978,80 @@ else:
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/hJFZvtYT&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/hGvkCJby/20250422224719.jpg&#34; alt=&#34;20250422224719.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;while...else 遇上 continue&lt;/strong&gt; (继续)&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/SKHvDgKR/20250422225002.jpg&#34; alt=&#34;20250422225002.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;for循环中else的结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#for循环中else的结构&#34;&gt;#&lt;/a&gt; for 循环中 else 的结构&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;基本语法&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for临时变量in序列：
+  重复执行的代码
+  ...
+else:
+  循环正常结束之后要执行的代码
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;所谓 else 指的是循环正常结束之后要执行的代码，即如果是 break 终止循环的情况，else 下方缩进的代码将不执行&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/5txR5JZ9/20250425220744.jpg&#34; alt=&#34;20250425220744.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;退出循环的两种方式&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;遇见 break&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/2jwFvvCW/20250425221204.jpg&#34; alt=&#34;20250425221204.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;遇见 continue&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/ncmFgKMj/20250425221548.jpg&#34; alt=&#34;20250425221548.jpg&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;综合案例报数字游戏&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#综合案例报数字游戏&#34;&gt;#&lt;/a&gt; 综合案例：报数字游戏&lt;/h4&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/Y97D2HxB/20250425223152.jpg&#34; alt=&#34;20250425223152.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-10-字符串定义切片&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-10-字符串定义切片&#34;&gt;#&lt;/a&gt; 1-10 字符串定义切片&lt;/h2&gt;
+&lt;h4 id=&#34;字符串定义与输入输出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字符串定义与输入输出&#34;&gt;#&lt;/a&gt; 字符串定义与输入输出&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一对引号字符串&lt;/li&gt;
+&lt;li&gt;三引号字符串（支持换行）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;字符串是 Python 中最常用的数据类型。我们一般所有引号来创建字符串。创建字符串很简单，只要为变量分配一个值即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：控制台显示结果为 &#39;&amp;lt;class str&amp;gt;&#39;, 即数据类型为 str（字符串）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/PxkrQ2mQ/20250425224841.jpg&#34; alt=&#34;20250425224841.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 Python 代码中，我们可以使用 input () 方法来接收用户的输入信息。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;记住：在 Python 中，input () 方法返回的结果是一个字符串类型的数据。&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;name &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token builtin&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&#39; 请输入您的姓名&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;age &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token builtin&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;请输入您的年龄: &#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;address &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token builtin&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;请输入您的住址: &#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;name&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; age&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; address&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol&gt;
+&lt;li&gt;input () 可以阻断当前正在执行的代码，让系统处于等待状态，直到用户输入完成&lt;/li&gt;
+&lt;li&gt;input () 方法接收到的所有数据，返回的数据类型多少字符串&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;普通输出&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;变量名称&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;变量名称&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;，变量名称&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;，变量名称&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;格式化输出&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;百分号 (Python2 和 Python3)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name = input(&#39;请输入您的姓名:&#39;）
+age = int(input(&#39;请输入您的年龄: &#39;)
+address = input(&#39; 请输入您的住址:&#39; )
+
+print(&#39;我的名字是当s，今年%d岁了，家里住在%s...% (name, age, address))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;format 方法 (Python3)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name = input(&#39; 请输入您的姓名: &#39;)
+age = input(&#39; 请输入您的年龄: &#39;)
+address = input(&#39; 请输入您的住址: &#39;)
+
+print(&#39;我的名字是&amp;#123;&amp;#125;，今年()岁了，家里住在&amp;#123;&amp;#125;...&#39;.format(name. age, address)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;f 形式 (Python3)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;name = input(&#39;请输入您的姓名: &#39;)
+age = input(&#39; 请输入您的年龄: &#39;)
+eddress input( &#39;请输入您的住址:&#39;)
+
+print(f&#39;我的名字是 &amp;#123;name&amp;#125;，今年&amp;#123;age&amp;#125;岁了， 家里住在&amp;#123;address&amp;#125;...&#39;)
+&lt;/code&gt;&lt;/pre&gt;
 </content>
-        <updated>2025-04-22T12:50:44.265Z</updated>
+        <updated>2025-04-24T15:46:37.000Z</updated>
     </entry>
     <entry>
         <id>https://151064.xyz/%E6%B5%8B%E8%AF%95.html</id>
