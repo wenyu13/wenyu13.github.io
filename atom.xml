@@ -1173,6 +1173,44 @@ print(f&#39;我的名字是 &amp;#123;name&amp;#125;，今年&amp;#123;age&amp;#
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/SQBPMbG3/20250429000402.jpg&#34; alt=&#34;20250429000402.jpg&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;lower ()：把字符串全部转换成小写&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/kg3dqtZV/20250429001612.jpg&#34; alt=&#34;20250429001612.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;字符串的判断语句&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字符串的判断语句&#34;&gt;#&lt;/a&gt; 字符串的判断语句&lt;/h4&gt;
+&lt;p&gt;字符串判断：所谓判断既是判断真假，返回的结果是布尔型数据类型（True 或 Flase）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;startswith()&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;检查字符串是否以指定子串开头，是则返回 True, 否则返回 Flase, 如果设置开始和结束位置下标，则在指定范围内检查&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;endswith()&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;检查字符串是否以指定子串结尾，是则返回 True, 否则返回 Flase, 如果设置开始和结束位置下标，则在指定范围内检查&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;基本语法&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mystr1 = &#39;Python program&#39;
+print(mystr1.startswith(&#39;Python&#39;))
+
+print(&#39;-&#39; * 10)
+
+mystr2 = &#39;aver.png&#39;
+print(mystr2.endswith(&#39;.png&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/1z6jfD4R/20250429223727.jpg&#34; alt=&#34;20250429223727.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-13-列表定义及使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-13-列表定义及使用&#34;&gt;#&lt;/a&gt; 1-13 列表定义及使用&lt;/h2&gt;
+&lt;h4 id=&#34;列表的定义与元素访问&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列表的定义与元素访问&#34;&gt;#&lt;/a&gt; 列表的定义与元素访问&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;基本语法&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;列表名称 = [数据1，数据2，数据3，数据4...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：列表可以一次存储多个数据且可以是不同的数据类型&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/SQL5X41p/20250429233747.jpg&#34; alt=&#34;20250429233747.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/NfLd6C1d/20250429235739.jpg&#34; alt=&#34;20250429235739.jpg&#34; /&gt;&lt;/p&gt;
 </content>
         <updated>2025-04-24T15:46:37.000Z</updated>
     </entry>
