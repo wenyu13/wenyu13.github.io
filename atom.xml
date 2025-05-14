@@ -1491,7 +1491,7 @@ dict2 = &amp;#123;&amp;#125;
 dict3 = dict()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;注意：一般称冒号前面的为键（key）, 简称 k; 冒号后面的为值（value）, 简称 v&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://postimg.cc/GTTpd7tK&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/ZnVvPXhG/20250514232423.jpg&#34; alt=&#34;20250514232423.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/QHW9cbs1&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/DyxrkjMj/20250514233120.jpg&#34; alt=&#34;20250514233120.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;字典的 “增” 操作&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;基本语法：&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;字典序列[key] = value
