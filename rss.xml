@@ -1485,7 +1485,7 @@ t2 = (10,)
 &lt;li&gt;每个键值对用&lt;strong&gt;逗号&lt;/strong&gt;隔开&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;key:value 键值对&lt;/strong&gt;    key 可以是字符类型也可以是数值类型&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;基本语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 Python 代码中，字典中的 key 必须使用引号引起来&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# 有数据字典
 dict1 = &amp;#123;&#39;name&#39;:&#39;Tom&#39;, &#39;age&#39;:20, &#39;gender&#39;:&#39;male&#39;&amp;#125;
 
@@ -1502,6 +1502,22 @@ dict3 = dict()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;** 注意：** 如果 key 存在则修改这个 key 对应的值：如果 key 不存在则新增此键值对&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;字典为可变类型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/sBT7bXVq&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/wvp2yynq/20250519234409.jpg&#34; alt=&#34;20250519234409.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/jWk02HxX&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/C1wFv79W/20250520000846.jpg&#34; alt=&#34;20250520000846.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;字典的新增操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字典的新增操作&#34;&gt;#&lt;/a&gt; 字典的新增操作&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;基本语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;字典名称[key] = value
+注：如果key存在则修改这个key对应的值；如果key不存在则新增此键值对
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意：列表、字典为可变类型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/qtd9kkby&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/mrcRyk7X/20250521231114.jpg&#34; alt=&#34;20250521231114.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;字典的删除操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字典的删除操作&#34;&gt;#&lt;/a&gt; 字典的删除操作&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;删除操作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;del 字典名称 [key]: 删除指定元素&lt;/li&gt;
+&lt;li&gt;clear () 方法：清空字典中的所有 key&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/c6cJ3xcg&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/nVy96Mjk/20250521232021.jpg&#34; alt=&#34;20250521232021.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
