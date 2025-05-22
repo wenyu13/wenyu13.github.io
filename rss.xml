@@ -1518,6 +1518,58 @@ dict3 = dict()
 &lt;li&gt;clear () 方法：清空字典中的所有 key&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/c6cJ3xcg&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/nVy96Mjk/20250521232021.jpg&#34; alt=&#34;20250521232021.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;字典的修改操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字典的修改操作&#34;&gt;#&lt;/a&gt; 字典的修改操作&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;基本语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;字典名称[key] = value
+注：如果key存在则修改这个key对应的值；如果key不存在则新增此键值对
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/F70RrBb9&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/xT4bRrcb/20250522223218.jpg&#34; alt=&#34;20250522223218.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;字典的查询方式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字典的查询方式&#34;&gt;#&lt;/a&gt; 字典的查询方式&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;字典的查操作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;查询方法：使用具体的某个 key 查询数据，如果未找到，则直接报错&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;字典数列[key]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字典的相关查询方法&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;编号&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;函数&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;get (key, 默认值)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;根据字典的 key 获取对应的 value 值，如果当查找的 key 不存在则返回第二个参数（默认值），如果省略第二个参数，则返回 None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;keys()&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;以列表返回一个字典所有的键&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;values()&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;以列表返回字典中的所有值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;items()&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;以列表返回可遍历的（键，值）元组数组&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/SJLg6mLH&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/pX43tTmV/20250522225229.jpg&#34; alt=&#34;20250522225229.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/XZXM1rQr&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/nLGHz7mG/20250522225321.jpg&#34; alt=&#34;20250522225321.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/yJq95gzL&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/7LhV50tr/20250522231007.jpg&#34; alt=&#34;20250522231007.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
