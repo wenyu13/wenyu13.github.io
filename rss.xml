@@ -1570,6 +1570,17 @@ dict3 = dict()
 &lt;/ol&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/XZXM1rQr&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/nLGHz7mG/20250522225321.jpg&#34; alt=&#34;20250522225321.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/yJq95gzL&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/7LhV50tr/20250522231007.jpg&#34; alt=&#34;20250522231007.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-15-案例-学生管理系统&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-15-案例-学生管理系统&#34;&gt;#&lt;/a&gt; 1-15 案例 - 学生管理系统&lt;/h2&gt;
+&lt;h4 id=&#34;学生管理系统菜单功能开发&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#学生管理系统菜单功能开发&#34;&gt;#&lt;/a&gt; 学生管理系统菜单功能开发&lt;/h4&gt;
+&lt;p&gt;** 需求：** 开一个通讯录的管理系统，主要用于实现存储班级中学生的信息（姓名、年龄、电话）&lt;/p&gt;
+&lt;p&gt;** 知识点：** 列表、字典、死循环&lt;/p&gt;
+&lt;p&gt;** 延伸：** 在 Python 中，我们可以使用字典来保存一个人的基本信息。但是如果想保存多个人的信息，我们必须把列表和字典结合起来&lt;/p&gt;
+&lt;p&gt;问：为什么需要死循环？&lt;/p&gt;
+&lt;p&gt;答：当我们选中某个菜单时，功能一旦执行完毕，则整个程序就执行结束了。为了保存程序可以一直运行下去，可以模拟死循环的效果，让程序一直运行下去&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/svnQSwfd&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/dVF8bxz1/20250523132536.jpg&#34; alt=&#34;20250523132536.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;学生管理系统多分支判断&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#学生管理系统多分支判断&#34;&gt;#&lt;/a&gt; 学生管理系统多分支判断&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/H8jxt8tW&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/5ySCbwYz/20250523222412.jpg&#34; alt=&#34;20250523222412.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/bZw69z7C&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/MpyhxHdS/20250523222424.jpg&#34; alt=&#34;20250523222424.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
