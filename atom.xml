@@ -1585,6 +1585,28 @@ dict3 = dict()
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/hJrfNNNp&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/HxGX8gzD/20250527214013.jpg&#34; alt=&#34;20250527214013.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/GHQJxjvD&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/7ZvsDs6K/20250527235341.jpg&#34; alt=&#34;20250527235341.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/2V29SYcg&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/YCw58q12/20250527235500.jpg&#34; alt=&#34;20250527235500.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-16-集合定义及使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-16-集合定义及使用&#34;&gt;#&lt;/a&gt; 1-16 集合定义及使用&lt;/h2&gt;
+&lt;h4 id=&#34;集合的定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集合的定义&#34;&gt;#&lt;/a&gt; 集合的定义&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;集合是一个天生去重的数据序列&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;集合的定义：&lt;/p&gt;
+&lt;p&gt;集合（set）是一个无序的不重复元素序列&lt;/p&gt;
+&lt;p&gt;** 注意：** 集合里面的元素是不重复的并且集合内的元素还是无序的&lt;/p&gt;
+&lt;p&gt;即，集合可以想元组一样，设置不可改变的类型。也可以默认想字典，列表一样，可以迭代改变。同时&lt;strong&gt;集合里的元素可以是列表，元组，字典&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;基本语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;创建集合使用‘{}’或‘set ()’，但如果要创建空集合只能使用‘set ()’，因为‘{}’用来创建空字典&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/56WXxHG7&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/gkn8H8KW/20250528234056.jpg&#34; alt=&#34;20250528234056.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;集合中的新增操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集合中的新增操作&#34;&gt;#&lt;/a&gt; 集合中的新增操作&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;集合的增操作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;add () 方法：向集合中增加一个元素（单一）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/F7GG3Qj4&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/bwfMXyrs/20250528234842.jpg&#34; alt=&#34;20250528234842.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;update () 方法：向集合在增加序列类型的数据（字符串、列表、元组、字典）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/Fd8wtkrN&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/prLvFK3h/20250528235518.jpg&#34; alt=&#34;20250528235518.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </content>
         <updated>2025-04-24T15:46:37.000Z</updated>
     </entry>
