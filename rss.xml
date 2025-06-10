@@ -1611,6 +1611,42 @@ dict3 = dict()
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/Fd8wtkrN&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/prLvFK3h/20250528235518.jpg&#34; alt=&#34;20250528235518.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h4 id=&#34;集合中的删除方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集合中的删除方法&#34;&gt;#&lt;/a&gt; 集合中的删除方法&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;remove () 方法：删除集合中的指定数据，如果数据不存在则报错&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;存在：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/Ny1sF9fS&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/SKPJZc0S/20250610182217.jpg&#34; alt=&#34;20250610182217.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不存在：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/9rK1FzkG&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/t4Cckxtm/20250610182403.jpg&#34; alt=&#34;20250610182403.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;discard () 方法：删除集合中的指定数据，如果数据不存在也不会报错&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;存在：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/zy19xdkb&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/cLK042gm/20250610182758.jpg&#34; alt=&#34;20250610182758.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不存在：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/ZBgQpjRq&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/fyTh4rQY/20250610182856.jpg&#34; alt=&#34;20250610182856.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pop () 方法：随机删除集合中的某个数据，并返回这个数据&lt;/p&gt;
+&lt;p&gt;执行原理：系统自动对集合中的数据进行排序（排序方法是混乱的，无规律的），排序后，pop () 方法自动删除第一个元素&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/KKsbpPz6&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/SsmKsVpx/20250610183301.jpg&#34; alt=&#34;20250610183301.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;集合中的查询方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集合中的查询方法&#34;&gt;#&lt;/a&gt; 集合中的查询方法&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;in：判断某个元素是否在集合中，如果在，则返回 True，否则返回 Flase&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/ZvL4c1yc&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/Y050p7rJ/20250610184653.jpg&#34; alt=&#34;20250610184653.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;not in : 判断某个元素不在集合中，如果不在，则返回 True，否则返回 Flase&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;集合的遍历操作&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/Bjz1Wwmp&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/ZqbPdG3G/20250610185108.jpg&#34; alt=&#34;20250610185108.jpg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
