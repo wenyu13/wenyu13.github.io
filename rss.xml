@@ -10,13 +10,13 @@
         </author>
         <description>夏日蝉鸣，梧桐树下</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 16 Jul 2025 09:02:44 +0800</pubDate>
-        <lastBuildDate>Wed, 16 Jul 2025 09:02:44 +0800</lastBuildDate>
+        <pubDate>Thu, 24 Apr 2025 23:46:37 +0800</pubDate>
+        <lastBuildDate>Thu, 24 Apr 2025 23:46:37 +0800</lastBuildDate>
         <item>
             <guid isPermalink="true">https://151064.xyz/STM32%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html</guid>
-            <title></title>
+            <title>STM32入门教程</title>
             <link>https://151064.xyz/STM32%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html</link>
-            <pubDate>Wed, 16 Jul 2025 09:02:44 +0800</pubDate>
+            <pubDate>Thu, 24 Apr 2025 23:46:37 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;stm32入门教程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#stm32入门教程&#34;&gt;#&lt;/a&gt; STM32 入门教程&lt;/h1&gt;
 &lt;h4 id=&#34;keil5-mdk&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#keil5-mdk&#34;&gt;#&lt;/a&gt; keil5 MDK&lt;/h4&gt;
 &lt;p&gt;是用来给 ARM 系统的单片机编程的&lt;/p&gt;
