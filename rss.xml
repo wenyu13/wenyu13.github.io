@@ -4173,11 +4173,69 @@ dict3 = dict()
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;len():&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://postimg.cc/rzv7DbqS&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/dt1FxPXS/wechat-2025-10-22-204233-041.png&#34; alt=&#34;wechat-2025-10-22-204233-041.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/D8KMzN0Y&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/hPJW2WBg/wechat-2025-10-22-204233-041.png&#34; alt=&#34;wechat-2025-10-22-204233-041.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;del:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/gX5cXD0x&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/T12KsNMJ/wechat-2025-10-22-204834-503.png&#34; alt=&#34;wechat-2025-10-22-204834-503.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&#34;求最大值和最小值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#求最大值和最小值&#34;&gt;#&lt;/a&gt; 求最大值和最小值&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/9DRykx6j&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/jSvvLmvC/wechat-2025-10-22-210542-670.png&#34; alt=&#34;wechat-2025-10-22-210542-670.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;enumerate方法详解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#enumerate方法详解&#34;&gt;#&lt;/a&gt; enumerate 方法详解&lt;/h4&gt;
+&lt;p&gt;**enumerate ()：** 把一个序列 (列表、元组、字符串) 的数据构造成 key:value 结构，然后结合 for 循环进行遍历&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/R67b11bv&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/pT4bHqf5/797dea37-4897-4f65-a6c3-c6589e41af8f.png&#34; alt=&#34;797dea37-4897-4f65-a6c3-c6589e41af8f.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;序列类型数据的相互转换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#序列类型数据的相互转换&#34;&gt;#&lt;/a&gt; 序列类型数据的相互转换&lt;/h4&gt;
+&lt;p&gt;在我们的序列类型中，比如说像列表、元组，还有我们集合之间也经常会发生类型的一个转换&lt;/p&gt;
+&lt;h5 id=&#34;list方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#list方法&#34;&gt;#&lt;/a&gt; list () 方法：&lt;/h5&gt;
+&lt;p&gt;把某个序列类型的数据转换为列表（可以把元组、集合和字典都转换成列表）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/MX6R5bn5&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/h4xrS2gk/Screen-Shot-2025-11-17-172659-860.png&#34; alt=&#34;Screen-Shot-2025-11-17-172659-860.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;** 注意：** 定义一个字典，将其转化为列表类型时，只能把 key 作为列表的元素，value 会自动舍弃&lt;/p&gt;
+&lt;h5 id=&#34;tuple方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tuple方法&#34;&gt;#&lt;/a&gt; tuple () 方法：&lt;/h5&gt;
+&lt;p&gt;把某个序列类型的数据转换为元组&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/D4mwDc4w&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/yxy3DQVc/1.png&#34; alt=&#34;1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;元组的最大特征：如果你是单元素的话，它自动会在结尾加个逗号&lt;/p&gt;
+&lt;p&gt;集合：本身是无序的&lt;/p&gt;
+&lt;h5 id=&#34;set方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#set方法&#34;&gt;#&lt;/a&gt; set () 方法：&lt;/h5&gt;
+&lt;p&gt;将某个序列转化成集合&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;集合可以快速完成列表去重&lt;/li&gt;
+&lt;li&gt;集合不支持下标，即数据会打散&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/D4mwDc4w&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/yxy3DQVc/1.png&#34; alt=&#34;1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;列表推导式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列表推导式&#34;&gt;#&lt;/a&gt; 列表推导式&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;推导:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;推导出我们想要的结果&lt;/li&gt;
+&lt;li&gt;可以简化我们的 Python 代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;什么是推导式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是推导式&#34;&gt;#&lt;/a&gt; 什么是推导式？&lt;/h5&gt;
+&lt;p&gt;推导式 comprehensions (又称解析式)，是 Python 的一种独有特性。推导式是可以从一个数据序列去构建一个新的数据序列（一个有规律的列表去或控制一个有规律的列表）的结构体。&lt;/p&gt;
+&lt;p&gt;共有 ** 三种推导：** 列表推导式、集合推导式、字典推导式&lt;/p&gt;
+&lt;h5 id=&#34;为什么需要推导式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么需要推导式&#34;&gt;#&lt;/a&gt; 为什么需要推导式&lt;/h5&gt;
+&lt;p&gt;将 Python 代码简化&lt;/p&gt;
+&lt;h5 id=&#34;列表推导式-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列表推导式-2&#34;&gt;#&lt;/a&gt; 列表推导式&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;基本语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;变量名 = [表达式 for 变量 in 列表]
+变量名 = [表达式 for 变量 in 列表 if 条件]
+变量名 = [表达式 for 变量 in 列表 for 变量 in 列表]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/v405x0LF&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/W4v8KKd3/3.png&#34; alt=&#34;3.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;列表推导式if条件判断&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列表推导式if条件判断&#34;&gt;#&lt;/a&gt; 列表推导式 + if 条件判断&lt;/h5&gt;
+&lt;p&gt;在使用列表推导式时候，我们除了可以使用 for 循环，其实我们还可以在其遍历的过程中，引入 if 条件判断&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;变量 = [表达式 for 临时变量 in 序列 if 条件判断]
+
+等价于
+
+for 临时变量 in 序列：
+    if 条件判断
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/xqLH3fyq&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/Y2s3kjvN/4.png&#34; alt=&#34;4.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;for循环嵌套列表推导式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#for循环嵌套列表推导式&#34;&gt;#&lt;/a&gt; for 循环嵌套列表推导式&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;for 临时变量 in range(n):
+    for 临时变量 in range(n):
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;基本语法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;变量 = [表达式 for 临时变量 in 序列 for 临时变量 in 序列]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/RW1Hx4ZQ&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/ht6bxGFw/5.png&#34; alt=&#34;5.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
