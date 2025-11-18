@@ -4236,6 +4236,30 @@ for 临时变量 in 序列：
 &lt;pre&gt;&lt;code&gt;变量 = [表达式 for 临时变量 in 序列 for 临时变量 in 序列]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/RW1Hx4ZQ&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/ht6bxGFw/5.png&#34; alt=&#34;5.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;字典推导式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字典推导式&#34;&gt;#&lt;/a&gt; 字典推导式&lt;/h4&gt;
+&lt;p&gt;基本语法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;字典推导式是列表推导式思想的延续，语法差不多，只不过产生的是字典而已&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字典推导式格式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;变量 = &amp;#123;key:value for key, value in 序列&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;字典推导式作用：快速合并列表为字典或提取字典中目标数据&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/kBGQSGFp&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/BQcMd184/1.png&#34; alt=&#34;1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其中的面试题&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/47hz0Syj&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/85Zt78Sk/2.png&#34; alt=&#34;2.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;集合推导式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集合推导式&#34;&gt;#&lt;/a&gt; 集合推导式&lt;/h4&gt;
+&lt;p&gt;集合推导式跟列表推导式非常相似，唯一的区别在于用 {} 代替 []&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;集合的最大特点就是去重&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/Y4vnp8jz&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/R0RjLDBy/3.png&#34; alt=&#34;3.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
