@@ -10,8 +10,163 @@
         </author>
         <description>夏日蝉鸣，梧桐树下</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 16 Jul 2025 09:23:05 +0800</pubDate>
-        <lastBuildDate>Wed, 16 Jul 2025 09:23:05 +0800</lastBuildDate>
+        <pubDate>Sun, 23 Nov 2025 21:41:32 +0800</pubDate>
+        <lastBuildDate>Sun, 23 Nov 2025 21:41:32 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://151064.xyz/%E4%BB%93%E9%A2%89%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%BA%94%E7%94%A8.html</guid>
+            <title>Cangjie</title>
+            <link>https://151064.xyz/%E4%BB%93%E9%A2%89%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%BA%94%E7%94%A8.html</link>
+            <pubDate>Sun, 23 Nov 2025 21:41:32 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;仓颉基础编程及应用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#仓颉基础编程及应用&#34;&gt;#&lt;/a&gt; 仓颉基础编程及应用&lt;/h1&gt;
+&lt;h2 id=&#34;仓颉编程语言入门&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#仓颉编程语言入门&#34;&gt;#&lt;/a&gt; 仓颉编程语言入门&lt;/h2&gt;
+&lt;h3 id=&#34;基本概念&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本概念&#34;&gt;#&lt;/a&gt; 基本概念&lt;/h3&gt;
+&lt;p&gt;仓颉编程语言制定了一些命名规则，符合规则的名字被称为标识符&lt;/p&gt;
+&lt;h4 id=&#34;普通标识符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#普通标识符&#34;&gt;#&lt;/a&gt; 普通标识符：&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;由英文&lt;strong&gt;字母开头&lt;/strong&gt;，后接零至多个&lt;strong&gt;英文字母（cangjie）&lt;/strong&gt;、&lt;strong&gt;数字（cangjie2025）&lt;strong&gt;或&lt;/strong&gt;下划线（cangjie_2025_11）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;由一至多个&lt;strong&gt;下划线&lt;/strong&gt;开头，后接一个&lt;strong&gt;英文字母（_c）&lt;/strong&gt;，最后可接零至多个&lt;strong&gt;英文字母（_cangjie）、数字（_&lt;em&gt;919）&lt;strong&gt;或&lt;/strong&gt;下划线（&lt;em&gt;o_o&lt;/em&gt;&lt;/em&gt;）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原始标识符&lt;/strong&gt;是在普通表示符或关键字的外面加上一对&lt;strong&gt;反引号&lt;/strong&gt;，主要用于将关键字作为标识符的场景&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#变量&#34;&gt;#&lt;/a&gt; 变量&lt;/h4&gt;
+&lt;p&gt;变量将一个名字和一个特定类型的值关联起来&lt;/p&gt;
+&lt;p&gt;变量分为&lt;strong&gt;可变变量、不可变量&lt;/strong&gt;和&lt;strong&gt;常量&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;可变变量：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;可变变量在定义后，还可以被赋予其他值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var name: type = expr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;函数&lt;/th&gt;
+&lt;th&gt;意义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;var name&lt;/td&gt;
+&lt;td&gt;变量名&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;变量类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;expr&lt;/td&gt;
+&lt;td&gt;初始值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;不可变量：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;不可变量在定义后，它的值不能再改变&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let name: type = expr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;常量：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;常量在被定义后，它的值也不能被改变&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const name: type = expr_const(下划线后面是下标)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;常量和不可变量的区别：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;常量的初始值在编译时确定，而不可变量的初始值在运行时确定&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当初始值具有明确类型时，可以省略变量类型标注，编译器会自动推断出变量类型&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;案例：&lt;/p&gt;
+&lt;p&gt;我们使用统计方法估算圆周率的值，就是向一个正方形中随机投点，统计落入正方形内接圆的点数，落入圆的概率是 PI/4&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/BL67YGRc&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/tTt0gq5f/1.png&#34; alt=&#34;1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;仓颉标准库提供的 random 包：它用于产生随机数&lt;/p&gt;
+&lt;h4 id=&#34;数据类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据类型&#34;&gt;#&lt;/a&gt; 数据类型&lt;/h4&gt;
+&lt;p&gt;规定了一块数据的组织结构即相应的解析和操作方式&lt;/p&gt;
+&lt;p&gt;let a: Int64 = 2024（64 位有符号整数类型）&lt;/p&gt;
+&lt;p&gt;let b: 67u8（8 位无符号整数类型，u8 后缀指示了这个字面量的类型，所以可以省略变量类型标注）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;整数类型名及对应的字面量后缀&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;整数类型&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Int8&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Int16&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Int32&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Int64&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;UInt8&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;UInt16&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;UInt32&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;UInt64&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;字面量后缀&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;i8&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;i16&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;i32&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;i64&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;u8&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;u16&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;u32&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;u64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;let c: Float64 = 6.21（64 位浮点数类型）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;浮点数类型名及对应的字面量后缀&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;浮点数类型&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Float16&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Float32&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Float64&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;字面量后缀&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;f16&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;f32&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;f64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34; colspan=&#34;2&#34;&gt;let d: Bool = ture&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;false（布尔类型，表示逻辑运算中的真与假，因此它只有两个取值，对应字面量是 ture 和 false, 等号右侧用逻辑 “或” 运算符连接了这两个字面量）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;let e: Rune = &#39; 仓 &#39;（字符类型，可以表示所有 Unicode 字符）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;字符类型的字面量由一个 Unicode 字符，外加一个单引号构成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;let f: Rune  = &#39;\u {9889}&#39;（字符类型的另一种字面量写法，以 Unicode 值定义字符）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里的 9889 就是仓颉的 “颉” 字对应的 Unicode 值&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;let g: String = &amp;quot;Cang&amp;quot; + &amp;quot;jie&amp;quot;（字符串类型，它的字面量是在一对双引号之间写零到多个 Unicode 字符）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但不能换行，所以这也被称为单行字符串字面量，字符串之间可以用 + 操作符执行拼接操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;let h: String = &amp;quot; &amp;quot; &amp;quot;&lt;/p&gt;
+&lt;p&gt;​      若到江南赶上春，&lt;/p&gt;
+&lt;p&gt;​              千万和春往。&lt;/p&gt;
+&lt;p&gt;“ ” “&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给出了多行字符串字面量的写法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;let i: String = &amp;quot;Cangjie${a}&amp;quot;（插值字符串的写法，在以上字符串字面量中，支持写一到多个插值表达式）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;要求表达式的类型实现了 ToString 接口&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;let j: Array&amp;lt;UInt8&amp;gt; = [67u8, 97u8, 110u8, 103u8]（数组类型，UInt8 是数组类型的参数，表示数组的元素是 UInt8 类型，数组字面量就是在一对方括号之间写一组由逗号分隔的数组元素字面量）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Array 是引用类型&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;let k: VArray&amp;lt;Rune, $2&amp;gt; = [&#39;C&#39;, &#39;J&#39;]（VArray 类型，是值类型的数据）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;声明 VArray 类型时，除了要给出数组元素的类型，还要指定数组元素的个数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;let l: (Int64, Float64) = (2024, 6.21)（元组类型，是一种组合类型，可以将多个不同类型的值组合在一起）&lt;/p&gt;
+&lt;p&gt;let m: Range&amp;lt;Int64&amp;gt; = 2019..2024（区间类型，表示一个有固定步长的取值范围，主要用于 for-in 表达式中）&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://151064.xyz/STM32%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html</guid>
             <title>STM32入门教程</title>
@@ -4260,6 +4415,13 @@ for 临时变量 in 序列：
 &lt;p&gt;集合的最大特点就是去重&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/Y4vnp8jz&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/R0RjLDBy/3.png&#34; alt=&#34;3.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-19-函数基本使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-19-函数基本使用&#34;&gt;#&lt;/a&gt; 1-19 函数基本使用&lt;/h2&gt;
+&lt;h4 id=&#34;学习目标-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#学习目标-2&#34;&gt;#&lt;/a&gt; 学习目标&lt;/h4&gt;
+&lt;p&gt;我们一般把编程分成两大结构：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;面向过程&lt;/li&gt;
+&lt;li&gt;面向对象&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
