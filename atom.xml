@@ -121,13 +121,8 @@
 &lt;td style=&#34;text-align:center&#34;&gt;f64&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34; colspan=&#34;2&#34;&gt;let d: Bool = ture&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;false（布尔类型，表示逻辑运算中的真与假，因此它只有两个取值，对应字面量是 ture 和 false, 等号右侧用逻辑 “或” 运算符连接了这两个字面量）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;let d: Bool = ture || false&lt;/strong&gt;（布尔类型，表示逻辑运算中的真与假，因此它只有两个取值，对应字面量是 ture 和 false, 等号右侧用逻辑 “或” 运算符连接了这两个字面量）&lt;/p&gt;
 &lt;p&gt;let e: Rune = &#39; 仓 &#39;（字符类型，可以表示所有 Unicode 字符）&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;字符类型的字面量由一个 Unicode 字符，外加一个单引号构成&lt;/p&gt;
@@ -161,6 +156,114 @@
 &lt;/blockquote&gt;
 &lt;p&gt;let l: (Int64, Float64) = (2024, 6.21)（元组类型，是一种组合类型，可以将多个不同类型的值组合在一起）&lt;/p&gt;
 &lt;p&gt;let m: Range&amp;lt;Int64&amp;gt; = 2019..2024（区间类型，表示一个有固定步长的取值范围，主要用于 for-in 表达式中）&lt;/p&gt;
+&lt;h4 id=&#34;表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#表达式&#34;&gt;#&lt;/a&gt; 表达式&lt;/h4&gt;
+&lt;p&gt;在程序中，取值并不仅仅来源于字面量，我们可以用 “表达式” 这个概念来描述所有可以求值的程序元素&lt;/p&gt;
+&lt;p&gt;仓颉语言不仅有传统的算数运算表达式，还有条件表达式、try 表达式、match 表达式、flow 表达式等，它们都可以被求值&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Cangjie&#34;&gt;let result = (x ** 2 + y ** 2) ** 0.5
+let result = if (x &amp;gt; 2024) &amp;#123;block&amp;#125; else &amp;#123;block&amp;#125;
+let result = try &amp;#123;block&amp;#125; catch (e: Exception) &amp;#123;block&amp;#125;
+let result = match (color)&amp;#123;
+    case Red(value) =&amp;gt; block
+    case Green(value) =&amp;gt; block
+    case _ =&amp;gt; block
+&amp;#125;
+let result = data |&amp;gt; fn1 |&amp;gt; fn2 |&amp;gt;fn3
+......
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例中的 block 表示&lt;strong&gt;代码块&lt;/strong&gt;，它代表一个顺序执行流，其中的表达式将按编码顺序依次执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;block := (expr（表达示）| decl_var（变量声明，其中var是下标）)*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在以上求值场景中，if/try/match 等表达式的值等于执行代码块中最后一个表达式的值。如果代码块是空的，则规定其类型为 Unit,Unit 类型唯一取值的字面量是 ()&lt;/p&gt;
+&lt;h4 id=&#34;控制执行流的基本表达式if表达式-while表达式-for-in表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#控制执行流的基本表达式if表达式-while表达式-for-in表达式&#34;&gt;#&lt;/a&gt; 控制执行流的基本表达式：if 表达式、while 表达式、for-in 表达式&lt;/h4&gt;
+&lt;h5 id=&#34;if表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#if表达式&#34;&gt;#&lt;/a&gt; if 表达式&lt;/h5&gt;
+&lt;p&gt;它会根据一个布尔类型表达示的取值选择执行不同的分支&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;if 表达式的语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Cangjie&#34;&gt;if(expr_Bool(Bool是下标))&amp;#123;
+    block  （if分支）
+&amp;#125; else if (expr_Bool(Bool是下标))&amp;#123;
+    block
+&amp;#125; else &amp;#123;  ?
+    block
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;else 后可接新的 if 表达式或一个代码块&lt;/p&gt;
+&lt;p&gt;如果圆括号中的 Bool 表达式取值为 ture，则会执行 if 分支；如果取值为 False，则会执行 else 分支，如果 if 表达式具有 else 代码块，则总有一个代码块会被执行，这种 if 表达式的值就等于所执行代码块中最后一个表达式的值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用仓颉标准库的 random 包，产生一个浮点类型随机数 speed，表示一个飞行速度，我们使用 if 表达式判断 speed 所属的宇宙速度区间，并在各分支给出相应的描述字符串，这些字符串都是使属代码块的最后一个表达式，且总有一个代码块会被执行&lt;/p&gt;
+&lt;p&gt;因此，在对这个 if 表达式求值时，将获得所执行代码块中的字符串&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/YGyg81fd&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/BbJgSp8f/1.png&#34; alt=&#34;1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;while表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#while表达式&#34;&gt;#&lt;/a&gt; while 表达式&lt;/h5&gt;
+&lt;p&gt;如何一段程序的执行流程，只会涉及三种基本结构 [顺序结构（代码块）、分支结构（if 表达式）和循环结构（while 表达式）]&lt;/p&gt;
+&lt;p&gt;while 表达式会根据一个布尔类型表达式的取值，选择是否执行循环体，如果执行了循环体，又会转回执行这个布尔表达式，由此实现一种循环执行流&lt;/p&gt;
+&lt;p&gt;由于循环体可能不被执行，所以规定 while 表达式的类型为 Unit&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这里我们用二分法估算 2 的平方根，变量 upper 和 lower 设置了估算区间，在循环体中，我们计算这个区间的中间值，并判断这个中间值的平方和 2 和大小关系，由此更新上下界，缩小估算区间，我们需要反复执行这些操作，直到估算区间足够小，&lt;/p&gt;
+&lt;p&gt;因此，我们的循环条件就是区间长度大于某个足够小的值&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/QHRC8jq9&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/FHKLxRdZ/2.png&#34; alt=&#34;2.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;for-in表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#for-in表达式&#34;&gt;#&lt;/a&gt; for-in 表达式&lt;/h5&gt;
+&lt;p&gt;循环结构的另一种表达式&lt;/p&gt;
+&lt;p&gt;在很多背景中，我们需要遍历一个集合或区间等，对其中每个值作相同的操作&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for (name（循环变量） in expr_terable（遍历对象，其中terable是下标）) &amp;#123;
+     block（循环体） 
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;for-in 表达式就提供了这样的能力，它可以遍历如何一个实现了迭代器接口的类型实例&lt;/p&gt;
+&lt;p&gt;其遍历对象的类型需要实现迭代器接口 Iterable&amp;lt;T&amp;gt;，运行时，将逐次调用迭代器取值并执行循环体，在循环体中可以循环变量引用对应值&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：循环变量是不可变的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于循环体可能不被执行，所以规定 for-in 表达式的类型为 Unit&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们计算和输出 2024 年各月的干支纪发，数组 heaven 和 earth 分别存放十天干和十二地支的字符，通过相关转换算法，我们得到 2024 年首月对应的天干序号 index，而每年正月到腊月的地支的固定为寅到丑，所以我们只需要按序遍历地支数组，并从天干数组的 index 处依次取值和地址关联，天干是循环使用的，所以 index 再递增过程中做了模 10 计算&lt;/p&gt;
+&lt;p&gt;由于仓颉已经为数组等集合类型实现了迭代器接口，所以这里可以直接使用 for-in 去遍历&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/GB1P3zPQ&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/xdX6R4cW/3.png&#34; alt=&#34;3.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;for-in 表达式还有其他几种用法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;遍历对象可以是 Rabge 表达式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var sum = 0
+for (i in 1..=99:2)&amp;#123;
+     sum += i * i
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;实例中的 Range 表达式产生一个从 1 到 99，步长为 2 的区间实例，在遍历过程中将依次取值，并且包含 1 和 99 两个边界值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当迭代器取值为元组类型时，可以在定义循环变量时进行解构，循环中就可以直接引用元组中的各个值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let array = [(1, 2), (3, 4), (5, 6)]
+for ((x, y) in array) &amp;#123;
+    println(&amp;quot;$&amp;#123;x&amp;#125;, $&amp;#123;y&amp;#125;&amp;quot;)
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果在循环体中无须引用循环变量，只需要重复执行多次循环体，则可以用一个下划线即通配符去替代循环变量，这样可以避免编译器告警&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var number = 2
+for (_ in 0..5) &amp;#123;
+     number *= number
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以在遍历对象后，用 where 引导一个布尔表达式，当它取值为 ture 时才会执行循环体&lt;/p&gt;
+&lt;p&gt;这个布尔表达式一般会引用循环变量，作为迭代元素的过滤器&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for (i in 0..10 where i % 2 == 1) &amp;#123;
+     println(i)
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;程序结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#程序结构&#34;&gt;#&lt;/a&gt; 程序结构&lt;/h4&gt;
+&lt;p&gt;** 包：** 是仓颉程序的最小编译单元，一个包由一到多个源文件组成，在每个文件可以声明当前文件所属包（如果没有文件声明，则默认属于名为 default 的包），也可以导入其他包，由此实现程序的高效管理和复用&lt;/p&gt;
+&lt;p&gt;在一个包中，也可以通过导入声明来引用其他包，而同一个包中的各个源文件之间总是共享程序元素的&lt;/p&gt;
+&lt;p&gt;在包的顶级作用域中，可以定义一系列的变量、函数和自定义类型（枚举、结构体、类、接口），以及包的声明与导入等，其中的变量和函数被称为&lt;strong&gt;全局变量&lt;/strong&gt;和&lt;strong&gt;全局函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在非顶层作用域中可以定义变量和函数，称为&lt;strong&gt;局部变量&lt;/strong&gt;和&lt;strong&gt;局部函数&lt;/strong&gt;。自定义类型中的局部变量和函数，称为&lt;strong&gt;成员变量&lt;/strong&gt;和&lt;strong&gt;成员函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果要将包编译为可执行文件，需要在顶层作用域中定义一个 main 函数作为&lt;strong&gt;程序入口&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;程序启动时将从 main 开始执行，main 函数可以没有参数，也可以声明一个 String 数组类型的参数，程序启动参数将通过这个数组传递给 mian 函数&lt;/p&gt;
+&lt;p&gt;main 函数的返回值类型可以是整数类型或 Unit 类型&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/WdftpwB0&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/s23WcnKH/4.png&#34; alt=&#34;4.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
         <updated>2025-11-23T13:41:32.000Z</updated>
     </entry>
