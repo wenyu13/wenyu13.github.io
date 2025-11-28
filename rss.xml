@@ -19,7 +19,7 @@
             <pubDate>Sun, 23 Nov 2025 21:41:32 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;仓颉基础编程及应用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#仓颉基础编程及应用&#34;&gt;#&lt;/a&gt; 仓颉基础编程及应用&lt;/h1&gt;
 &lt;h2 id=&#34;仓颉编程语言入门&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#仓颉编程语言入门&#34;&gt;#&lt;/a&gt; 仓颉编程语言入门&lt;/h2&gt;
-&lt;h3 id=&#34;基本概念&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本概念&#34;&gt;#&lt;/a&gt; 基本概念&lt;/h3&gt;
+&lt;h3 id=&#34;一-基本概念&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-基本概念&#34;&gt;#&lt;/a&gt; 一、基本概念&lt;/h3&gt;
 &lt;p&gt;仓颉编程语言制定了一些命名规则，符合规则的名字被称为标识符&lt;/p&gt;
 &lt;h4 id=&#34;普通标识符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#普通标识符&#34;&gt;#&lt;/a&gt; 普通标识符：&lt;/h4&gt;
 &lt;ol&gt;
@@ -268,6 +268,57 @@ for (_ in 0..5) &amp;#123;
 &lt;p&gt;main 函数的返回值类型可以是整数类型或 Unit 类型&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/WdftpwB0&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/s23WcnKH/4.png&#34; alt=&#34;4.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二-函数修改&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-函数修改&#34;&gt;#&lt;/a&gt; 二、函数修改&lt;/h3&gt;
+&lt;h4 id=&#34;定义函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#定义函数&#34;&gt;#&lt;/a&gt; 定义函数&lt;/h4&gt;
+&lt;p&gt;函数是一个参数化的代码块，在调用函数时，这个代码块实现特定功能并可以被求值，结合函数参数实现特定范围的代码复用&lt;/p&gt;
+&lt;p&gt;** 函数定义的要素：** 函数名、参数列表、返回值和函数体&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func name(params): type &amp;#123;
+    block_func（func是下标）
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;参数列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参数列表&#34;&gt;#&lt;/a&gt; 参数列表&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;参数列表&lt;/strong&gt;是由零到多个参数声明组成的，参数分为&lt;strong&gt;普通参数&lt;/strong&gt;和&lt;strong&gt;命名参数&lt;/strong&gt;两种，它们有不同的声明方式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;params_normal（normal是下标）:= name : type, name : type*
+params_name （name是下标）:= name !: type, name !: type*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在参数列表中，命名参数只能在普通参数之后进行声明&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;params := params_normal?params_name?
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以将命名参数设置为默认值，在调用函数时，对这类函数可以省略传参，对应实参将取其默认值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name !: type = expr_const（const是下标）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;函数体&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数体&#34;&gt;#&lt;/a&gt; 函数体&lt;/h5&gt;
+&lt;p&gt;函数体可以有零到多个表达式，变量声明或函数声明，函数参数将作为不可变变量在函数体中使用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;block_func（func是下标） := (expr | decl_var（var是下标） | decl_func（func是下标）)*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在函数体中定义的函数被称为&lt;strong&gt;嵌套函数&lt;/strong&gt;，嵌套函数可以&lt;strong&gt;捕获&lt;/strong&gt;其外层作用域中的局部变量，由此构成&lt;strong&gt;闭包&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在函数体中可以用 return 表达式返回一个值，执行 return 后会跳出当前函数，返回到调用处继续执行&lt;/p&gt;
+&lt;p&gt;在函数体中&lt;strong&gt;返回值&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;return expr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;函数类型&lt;/strong&gt;的表达方式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(type, type)* -&amp;gt; type  有参
+() -&amp;gt; type             无参
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在仓颉语言中，函数是一等公民，它不仅可以被调用，也可以作为一个值去传递在这种场景，我们可能需要写出对应的函数类型名&lt;/p&gt;
+&lt;h4 id=&#34;调用函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#调用函数&#34;&gt;#&lt;/a&gt; 调用函数&lt;/h4&gt;
+&lt;p&gt;我们通过函数名和实参列表来调用一个函数&lt;/p&gt;
+&lt;p&gt;实参列表由零到多个表达式构成，这些表达式的值就是对应位置的参数值&lt;/p&gt;
+&lt;p&gt;命名参数对应的实参前还要加上参数名前缀&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name_func（func是下标）(args（实参列表）)
+  args := args_normal（下标）?args_named（下标）？
+  args_normal := expr, expr*
+  args_named := name_param : expr, name_param : expr*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在实参列表中，可以省略有默认值的命名参数，这时对应实参将取其默认值&lt;/p&gt;
+&lt;p&gt;函数不仅可以被调用，还可以作为值去使用，如赋值给变量、作为函数的参数和返回值等&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在顶层作用域中我们定于了 void 和 node 两个函数，node 函数不仅有字符类型的参数 value，还有两个函数类型的命名参数 left 和 right，并且以 void 函数作为它们的默认值，在 node 函数体中，我们又定义了一个嵌套函数 show，在 show 函数体内引用了外层函数的参数，由此构成了闭包&lt;/p&gt;
+&lt;p&gt;这个闭包会被分配专属的空间来存储 left、right 和 value 的值，最后 node 返回了 show 函数，基于闭包的特性，node 函数每次被调用时，实际上会返回不同的 show 闭包实例，每个实例可以持有不同的 left、right 和 value 值&lt;/p&gt;
+&lt;p&gt;在这个基础上，我们仅通过 node 函数调用，得到了一个具有二叉树结构的闭包&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/SJyzst2B&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/7Yz1KFxZ/image.png&#34; alt=&#34;image.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
