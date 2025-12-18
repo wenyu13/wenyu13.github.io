@@ -362,6 +362,146 @@ name_item(args)
 &lt;p&gt;在 main 函数中，我们首先调用 Node 构造器手动组织了一棵二叉树，然后调用实例成员函数 traverse 按中序打印了各个节点的值，随后，我们由通过枚举类型名调用静态成员函数 generate，得到了一个 5 层的满二叉树实例，并再次调用 traverse 函数打印这棵树&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/S2fntG7d&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/tTLFJSsK/1.png&#34; alt=&#34;1.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/Hr8VCm9L&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/2S2vh8qn/2.png&#34; alt=&#34;2.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;match表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#match表达式&#34;&gt;#&lt;/a&gt; match 表达式&lt;/h4&gt;
+&lt;p&gt;枚举类型能支持我们做一些有意义的符号表达和计算，而 match 表达式就是连接符号和计算的核心特性&lt;/p&gt;
+&lt;p&gt;match 表达式也称为模式匹配表达式&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;基本语法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在运行时，会首先计算 match 括号中的表达式得到一个值，然后依次执行 match 块中的一到多个 case 表达式，每个 case 表达式尝试把这个值和 pattern 匹配，如果匹配成功，则执行箭头后面的代码块，然后跳出 match 表达式；如果匹配失败，则继续执行下一个 case 表达式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;match(expr) &amp;#123;
+   case pattern =&amp;gt; block
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;case 之后可以用 “或” 操作符，连接多个同类型的模式，执行这个 case 时，只要待匹配值和其中任何一个模式匹配，就算是匹配成功&lt;/p&gt;
+&lt;p&gt;可以用 “|” 连接多个同类型的模式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case pattern | pattern*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;pattern 后也可以用 where 增加约束，即可以用 where 来引导一个布尔表达式&lt;/p&gt;
+&lt;p&gt;pattern 被匹配且这个布尔表达式的值为 true，才算是匹配成功&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case pattern where expr_Bool（Bool是下标）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;仓颉支持六种pattern的基本模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#仓颉支持六种pattern的基本模式&#34;&gt;#&lt;/a&gt; 仓颉支持六种 pattern 的基本模式：&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;枚举模式&lt;/p&gt;
+&lt;p&gt;用于解构枚举项的构造函数&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case Rot(speed) =&amp;gt; rotate(speed)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;类型模式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case object: Plane =&amp;gt; object.fly()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;绑定模式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case other =&amp;gt; process(other)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;元组模式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case (name, 80) =&amp;gt; println(name)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;常量模式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case 2024 =&amp;gt; println(&amp;quot;Cangjie&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通配模式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;case _ =&amp;gt; defdault()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可以看出 match 表达式不止应用于枚举类型，但枚举类型确实是 match 表达式最常用的也是非平凡的使用场景&lt;/p&gt;
+&lt;p&gt;不同模式下，“匹配成功” 有不同的定义，在枚举模式下，表示待匹配值是由枚举项 pattern 构造的，对于有参枚举项，在 pattern 中还可以用表示符对构造参数占位，若匹配成功，待匹配值对应的参数会绑定到这些占位符上，在 case 代码块中，作为不可变变量使用，由此实现枚举项的解构&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通过实例我们来简单了解其他几种模式的使用方法，这里的函数 fib 用于计算斐波拉切数的第 n 项，主要通过 match 表达式和递归调用来实现，这里 match 的待匹配值就是整数 n，第一个 case 使用常量模式，匹配边界值 0 或 1，这两项的值就是 n 本身；第二个 case 使用绑定模式和 where 约束匹配 n&amp;gt;1 的情况，在这个范围内，第 n 项的值等于前两项之和；第三个 case 使用通配模式，拦截 n&amp;lt;0 的异常情况，对这些非法输入，我们直接返回 0&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/2q7y7ppZ&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/GpZDrrqq/2.png&#34; alt=&#34;2.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;应用实例&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用实例&#34;&gt;#&lt;/a&gt; 应用实例&lt;/h4&gt;
+&lt;p&gt;我们通过实例进一步理解枚举类型和模式匹配，这里我们用枚举类型 Expr 来描述和实现四则运算，Num 枚举项对应操作数 Add、Sub、Mul、Div 对应加减乘除 1 操作符，它们的构造参数都是两个 Expr 实例，表示它们的左右操作数，由此组织出一棵算术运算树，为了计算这棵树，我们定义了 calc 成员函数，其中使用了 match 表达式，它的待匹配值就是当前枚举实例，我们在第一个 case 中匹配和解构 Num 枚举项，如果匹配成功直接返回对应操作数，然后，我们依次匹配代表加减乘除的四个枚举项，从中解构的参数又是 Expr 类型，我们递归调用这些参数的 calc 函数进行分治求值，然后相应的操作符作汇总计算，由此实现整棵数的算数求值&lt;/p&gt;
+&lt;p&gt;最后，为便于这棵树的构造，我们还实现了加减乘除操作符函数，让使用者可以通过写一个算术表达式来构造对应的枚举实例&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/fJCybDHQ&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/jS07ZjP2/5.png&#34; alt=&#34;5.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/t7TjkBYV&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/RC1ZM8mG/4.png&#34; alt=&#34;4.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;option&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#option&#34;&gt;#&lt;/a&gt; Option&lt;/h4&gt;
+&lt;p&gt;在有些应用场景中，一个变量不能保证在整个生命周期内都被赋予有效值，例如计算过程中出现了异常情况，或者是在一定阶段不需要被初始化等等，为了高效且安全的表达这种 “或有或无” 的值，仓颉语言提供了 Option 类型&lt;/p&gt;
+&lt;p&gt;Option 是通过枚举类型实现的，它被定义在仓颉标准库 core 包中，开发者无需显式导入即克直接引用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;enum Option&amp;lt;T&amp;gt; &amp;#123;
+    None（表示无值状态） | Some(T)（表示有值状态）
+    public func getOrThrow(): T
+    public func getOrThrow(exception: () -&amp;gt; Exception): T   （第三行和第四行：尝试获取有效值，如果失败就抛出异常）
+    public func getOrThrow(other: ()-&amp;gt;T): T   （尝试获取有效值，如果失败就执行指定操作）
+    public func isNone(): Bool
+    public func isSome(): Bool       （第六行和第七行：判断当前实例是否持有有效值）
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里 T 是一个类型参数，表达有效值的类性，Option 具有两个枚举项 None 和 Some，分别表达无值和有值的状态，同时还具有几个成员函数，用于取值和判断状态&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创建 Option 实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var result = Some(2024)
+var result: Option&amp;lt;Int64&amp;gt; = 2024
+var result: ?Int64 = 2024
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;仓颉编译器为 Option 提供了相应的自动类型推导能力和语法糖，让 Option 的创建和使用更加高效，例如，在类型 T 前加一个问号，就能快速表示 Option&amp;lt;T&amp;gt; 类型&lt;/p&gt;
+&lt;p&gt;在仓颉语言中，不存在空值或空指针的概念，可能存在无效值的场景中只能用 Option 去判断处理，避免了空值相关安全问题&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这里 parselnt 函数可以将给定的数字字符串转为对应的十进制整数，但是输入的字符串，可能不符合整数词法规则，这将导致解析失败，为此，我们定义 parselnt 函数的返回值类型为 Option&amp;lt;Int64&amp;gt;，如果解析失败，将返回 None，否则返回携带有效值的 Some 实例&lt;/p&gt;
+&lt;p&gt;这里导致可能解析失败的情况，主要是字符串为空，只有一个负号或出现非法字符，所以我们在这些位置返回了 None，在函数最后返回有效值时，并没有显示使用 Option 或 Some，当仓颉编译器会根据标注的函数返回值类型，将 return 之后的表达式自动包装为 Option 类型&lt;/p&gt;
+&lt;p&gt;在 main 函数中，我们调用 parselnt 函数，获得了 Option 类型变量，并调用 Option 的相关成员函数进行取值和判空操作，当然，我们也可以使用模式匹配表达式来解构 Option 实例，&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/GBXk9VBk&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/1tQM7ZsY/Screen-Shot-2025-12-06-151736-668.png&#34; alt=&#34;Screen-Shot-2025-12-06-151736-668.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;四-结构体&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#四-结构体&#34;&gt;#&lt;/a&gt; 四、结构体&lt;/h3&gt;
+&lt;h4 id=&#34;定义与实例化-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#定义与实例化-2&#34;&gt;#&lt;/a&gt; 定义与实例化&lt;/h4&gt;
+&lt;p&gt;结构体也是一种组合类型，通过定义若干成员变量，可以把多个不同类型的值组合在一起，同时，还可以定义成员函数和成员属性来操作这些数据成员，以此实现更复杂的数据结构个封装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;struct name（结构体名） &amp;#123;
+    condtructor* （构造函数）
+    (decl_var | decl_func | decl_prop)*
+    （成员变量 | 成员函数 | 成员属性）
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在结构体中可以定义多个构造函数，它们用于创建结构体实例&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;构造函数有两种：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;普通构造函数&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;init(params) &amp;#123;
+    block_func
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;除了没有 func 前缀和不可变的函数名，在定义时和普通函数基本一样&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主构造函数&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name_struct(decl_vars) &amp;#123;
+    block_func
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;它的函数名和结构体名一致，更特殊之处是它的&lt;strong&gt;参数列表&lt;/strong&gt;，其中可以直接定义成员变量，而且不必在函数体中再为这些变量赋值，调用时传入的实参会自动赋给相应的成员变量&lt;/p&gt;
+&lt;p&gt;decl_vars 是对成员变量的声明，在此统一了成员变量的定义和初始化，减少冗余编码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在结构体中可以定义多个普通构造函数，当最多只能构造一个主构造函数&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创建结构实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;name_struct(args)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;调用任何一个构造函数，都将返回一个结构体实例，调用处的构造函数名，都统一为结构体名&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们定义了一个名为 Point 的结构体，并在主构造函数中，定义了两个成员变量 x 和 y，在 main 函数中调用构造函数，创建了 Point 实例，对应的成员变量 x 和 y 被自动赋值为 3.0 和 4.0，然后我们通过实例 p 去访问这两个成员变量，将它们打印输出&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/5YwCdtc5&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/Y9PfF4bP/wei-xin-tu-pian-2025-12-06-165100-460.png&#34; alt=&#34;wei-xin-tu-pian-2025-12-06-165100-460.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;成员访问规则-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#成员访问规则-2&#34;&gt;#&lt;/a&gt; 成员访问规则&lt;/h4&gt;
+&lt;p&gt;在成员变量、成员函数和成员属性的声明前可以添加一些修饰符，它们将影响成员的访问方式&lt;/p&gt;
+&lt;p&gt;**private：** 设置成员仅在结构体内可见&lt;/p&gt;
+&lt;p&gt;**public：** 设置成员仅在结构体内外均可见&lt;/p&gt;
+&lt;p&gt;如果没有使用这两个修饰符，这类成员默认在当前包内可见&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;static：&lt;strong&gt;设置成员为&lt;/strong&gt;静态成员&lt;/strong&gt;，只能通过结构体名访问，没有 static 修饰的成员默认为&lt;strong&gt;实例成员&lt;/strong&gt;，只能由实例变量访问&lt;/p&gt;
+&lt;p&gt;在实例成员函数中可以引用其他成员，在静态成员函数中只能引用静态成员&lt;/p&gt;
+&lt;p&gt;在实例成员函数中可以使用 this 变量，它默认为当前实例的&lt;strong&gt;拷贝&lt;/strong&gt;，而且是不可变变量&lt;/p&gt;
+&lt;p&gt;如果需要在实例成员函数中修饰可变实例成员变量，需要在成员函数前添加 mat 修饰符，其中的 this 就是当前实例的&lt;strong&gt;引用&lt;/strong&gt;，通过这个 this 变量就能修饰当前实例&lt;/p&gt;
+&lt;p&gt;这些特殊规则主要源于结构体的存储方式&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我们定义了静态成员变量 name，并通过结构体名访问和打印了 name 的值，我们还定义了两个 private 修饰的实例成员变量，这样我们就不能在结构体外，通过成员名字访问它们，为了能在外部修改这两个变量，我们定义了 public 和 mut 修饰的实例成员函数 set，因为有 mut 修饰，就只能通过 this 引用当前实例，我们借此为成员 x 和 y 进行赋值&lt;/p&gt;
+&lt;p&gt;此外，我们定义了 pubilc 修饰的实例成员函数 copy，它直接返回 this，也就是当前结构体实例的拷贝，因此 main 函数中的 p1 和 p2 是两个不同的实例，p2 调用 set 修改成员变量并不影响 p1&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/H8k7DHhd&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/gjvyh2yX/Screen-Shot-2025-12-15-204055-573.png&#34; alt=&#34;Screen-Shot-2025-12-15-204055-573.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;应用实例-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用实例-2&#34;&gt;#&lt;/a&gt; 应用实例&lt;/h5&gt;
+&lt;p&gt;这里我们使用结构体和 Option 类型作另一种实现，结构体 Node 表示二叉树的节点，在主构造函数中，我们定义了三个成员函数变量，value 用于存储节点的值，left 和 right 将存储节点的左右子树，由于左右子树是可选的，因此我们使用了 Option&amp;lt;Node&amp;gt; 类型，在主构造函数的参数列表中，也可以定义命名参数和默认值，这里为 left 和 right 设置了默认值 Node&lt;/p&gt;
 </content>
         <updated>2025-11-23T13:41:32.000Z</updated>
     </entry>
@@ -4613,12 +4753,51 @@ for 临时变量 in 序列：
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/Y4vnp8jz&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/R0RjLDBy/3.png&#34; alt=&#34;3.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;1-19-函数基本使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-19-函数基本使用&#34;&gt;#&lt;/a&gt; 1-19 函数基本使用&lt;/h2&gt;
-&lt;h4 id=&#34;学习目标-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#学习目标-2&#34;&gt;#&lt;/a&gt; 学习目标&lt;/h4&gt;
-&lt;p&gt;我们一般把编程分成两大结构：&lt;/p&gt;
+&lt;h4 id=&#34;python中函数的定义和调用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#python中函数的定义和调用&#34;&gt;#&lt;/a&gt; Python 中函数的定义和调用&lt;/h4&gt;
+&lt;h5 id=&#34;函数的作用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数的作用&#34;&gt;#&lt;/a&gt; 函数的作用&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;用户到 ATM 机取钱：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;面向过程&lt;/li&gt;
-&lt;li&gt;面向对象&lt;/li&gt;
+&lt;li&gt;输入密码后显示 “选择功能” 界面&lt;/li&gt;
+&lt;li&gt;查询余额后显示 “选择功能” 界面&lt;/li&gt;
+&lt;li&gt;取 2000 块钱后显示 “选择功能” 界面&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;Q：1，2，3 操作之后都会显示&lt;strong&gt;选择功能页面&lt;/strong&gt;，那么显示” 选择功能 “界面需要&lt;strong&gt;重复输出给用户&lt;/strong&gt;，字母实现呢？&lt;/p&gt;
+&lt;p&gt;T：使用函数，把” 选择功能 “的相关&lt;strong&gt;代码封装&lt;/strong&gt;起来，当需要使用的时候直接调用函数，这样就可以&lt;strong&gt;实现代码的复用&lt;/strong&gt;了&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;函数的作用有两个：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;代码重用（代码重复使用）&lt;/li&gt;
+&lt;li&gt;模块化编程（模块化编程的核心就是函数，一般就是把一个系统分解为若干个功能，每个功能就是一个函数）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编程领域，编程可以分为两大类：1. 模块化编程 2. 面向对象编程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;什么是函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是函数&#34;&gt;#&lt;/a&gt; 什么是函数&lt;/h5&gt;
+&lt;p&gt;函数是一个被命名的、独立的、完成特定功能的代码块，其可能给调用它的程序一个返回值&lt;/p&gt;
+&lt;p&gt;** 被命名的：** 在 Python 中，大部分函数都是有名函数【def 函数名称 ()】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;没有名字的函数叫匿名函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;** 完成特定功能的代码块：** 函数的功能要专一，专门为了完成某个功能而定义&lt;/p&gt;
+&lt;p&gt;** 返回值：** 当函数执行完毕后，其可能会返回一个值给函数的调用处 【return 返回值】&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;返回值就是函数执行完毕返回的结果&lt;/p&gt;
+&lt;p&gt;返回的作用：调用函数时，函数会自动把结果返回到调用的位置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;关于返回值的&lt;strong&gt;案例&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;函数的设计原则 “高内聚，低耦合”，函数执行完毕后，应该主动把数返回给调用处，而不应该都交给有 print () 等函数直接输出&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/bDzN59kz&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/hjmzfCG7/Screen-Shot-2025-12-18-171956-298.png&#34; alt=&#34;Screen-Shot-2025-12-18-171956-298.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;函数中有参数，那我们在调用过程中就要传递一个与之对应的参数&lt;/p&gt;
+&lt;h4 id=&#34;return返回值详解&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#return返回值详解&#34;&gt;#&lt;/a&gt; return 返回值详解&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;了解 return&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;return 可以退出当前函数，导致 return 下方的代码不执行（即在函数体内部，如果程序遇到 return 关键字，则会自动终止，然后整个函数返回 return 后面的结果）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/LnT7Bd37&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/4xkgGs7J/Screen-Shot-2025-12-18-174550-231.png&#34; alt=&#34;Screen-Shot-2025-12-18-174550-231.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;即，函数中只能有一个 return&lt;/p&gt;
+&lt;p&gt;Q：如果函数要有多个返回值，该如何书写代码？&lt;/p&gt;
+&lt;p&gt;T：在 Python 中，理论上一个函数只能返回一个结果。但是我们如果想让一个函数可以同时返回多个结果，我们可以使用&lt;strong&gt; return 元组&lt;/strong&gt;的形式&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/kVsX0MKC&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/gJFX6n0x/Screen-Shot-2025-12-18-191242-471.png&#34; alt=&#34;Screen-Shot-2025-12-18-191242-471.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;案例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;封装一个函数，参数有两个 num1，num2，求两个数的四则运算结果&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/Yh29xWWz&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/tCWxpdRw/Screen-Shot-2025-12-18-192228-338.png&#34; alt=&#34;Screen-Shot-2025-12-18-192228-338.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
         <updated>2025-04-24T15:46:37.000Z</updated>
     </entry>
