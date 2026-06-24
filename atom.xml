@@ -8,7 +8,156 @@
     <author>
       <name>温屿</name>
     </author>
-    <updated>2025-11-23T13:41:32.000Z</updated>
+    <updated>2026-06-23T01:23:05.000Z</updated>
+    <entry>
+        <id>https://151064.xyz/AI%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E4%B8%89%E5%8D%81%E5%A4%A9%E5%86%B2%E5%88%BA%E8%AE%A1%E5%88%92.html</id>
+        <title>AI应用开发三十天冲刺计划</title>
+        <link rel="alternate" href="https://151064.xyz/AI%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E4%B8%89%E5%8D%81%E5%A4%A9%E5%86%B2%E5%88%BA%E8%AE%A1%E5%88%92.html"/>
+        <content type="html">&lt;h1 id=&#34;ai应用开发三十天冲刺计划&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ai应用开发三十天冲刺计划&#34;&gt;#&lt;/a&gt; AI 应用开发三十天冲刺计划&lt;/h1&gt;
+&lt;h1 id=&#34;day-1-实战ai视觉基石opencv智能证件照换底&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#day-1-实战ai视觉基石opencv智能证件照换底&#34;&gt;#&lt;/a&gt; 🚀 Day 1 实战：AI 视觉基石 ——OpenCV 智能证件照换底&lt;/h1&gt;
+&lt;h2 id=&#34;1-项目简介-project-overview&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-项目简介-project-overview&#34;&gt;#&lt;/a&gt; 1. 项目简介 (Project Overview)&lt;/h2&gt;
+&lt;p&gt;本项目是 “30 天人工智能应用实战” 的第一站。目标是利用计算机视觉技术，实现对蓝底 / 浅蓝底证件照的背景自动识别与替换，生成符合规范的红底照片。&lt;/p&gt;
+&lt;h2 id=&#34;2-技术栈-tech-stack&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-技术栈-tech-stack&#34;&gt;#&lt;/a&gt; 2. 技术栈 (Tech Stack)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开发工具&lt;/strong&gt;：Cursor (AI-Powered Code Editor)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编程语言&lt;/strong&gt;：Python 3.13&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心库&lt;/strong&gt;：OpenCV-Python, Numpy&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;版本控制&lt;/strong&gt;：Git + GitHub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-核心技术点-technical-highlights&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-核心技术点-technical-highlights&#34;&gt;#&lt;/a&gt; 3. 核心技术点 (Technical Highlights)&lt;/h2&gt;
+&lt;h3 id=&#34;a-颜色空间转换-hsv-vs-rgb&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#a-颜色空间转换-hsv-vs-rgb&#34;&gt;#&lt;/a&gt; A. 颜色空间转换 (HSV vs RGB)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;痛点&lt;/strong&gt;：RGB 空间受光照强度影响巨大，三个通道高度相关，难以精确锁定某种颜色。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：将图像转换至 &lt;strong&gt;HSV (Hue, Saturation, Value)&lt;/strong&gt; 空间。我们将 H（色调）范围锁定在浅蓝色区间，从而实现对背景的精确提取。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;b-掩模与位运算-masking&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#b-掩模与位运算-masking&#34;&gt;#&lt;/a&gt; B. 掩模与位运算 (Masking)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;通过 cv2.inRange 生成二值化掩模，将背景识别为白色（255），人像识别为黑色（0）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;c-形态学噪点处理-morphological-operations&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c-形态学噪点处理-morphological-operations&#34;&gt;#&lt;/a&gt; C. 形态学噪点处理 (Morphological Operations)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作&lt;/strong&gt;：使用 &lt;strong&gt;开运算 (Opening)&lt;/strong&gt; —— 先腐蚀后膨胀。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：消除前景目标（如衣物、头发边缘）内部细小的误判噪点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;4-踩坑与解决方案-troubleshooting-面试重点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-踩坑与解决方案-troubleshooting-面试重点&#34;&gt;#&lt;/a&gt; 4. 踩坑与解决方案 (Troubleshooting - 面试重点)&lt;/h2&gt;
+&lt;h3 id=&#34;坑-1python-环境路径冲突&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坑-1python-环境路径冲突&#34;&gt;#&lt;/a&gt; 🔴 坑 1：Python 环境路径冲突&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;现象&lt;/strong&gt;：在终端执行 pip install 成功，但运行代码提示 ModuleNotFoundError: No module named &#39;cv2&#39;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因分析&lt;/strong&gt;：Windows 系统中存在多个 Python 环境，Cursor 调用的解释器路径与终端默认 pip 路径不一致。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对策&lt;/strong&gt;：使用&lt;strong&gt;绝对路径安装法&lt;/strong&gt;，通过 &amp;amp; C:/path/to/python.exe -m pip install 强制安装到当前开发环境，彻底解决路径错位问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;坑-2浅蓝色背景下的误伤噪点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坑-2浅蓝色背景下的误伤噪点&#34;&gt;#&lt;/a&gt; 🔴 坑 2：浅蓝色背景下的 “误伤” 噪点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;现象&lt;/strong&gt;：换底后，人像的灰色西装区域出现了密集的红点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;原因分析&lt;/strong&gt;：衣服的灰色中含有微量蓝色分量，落入了我们设定的 HSV 阈值范围内。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;对策&lt;/strong&gt;：引入 cv2.morphologyEx 开运算，使用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;5×55×5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;的卷积核滤除细小噪声，保证了衣物区域的颜色完整性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;坑-3github-push-响应超时&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#坑-3github-push-响应超时&#34;&gt;#&lt;/a&gt; 🔴 坑 3：GitHub Push 响应超时&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;现象&lt;/strong&gt;：git push 命令长时间卡死。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因分析&lt;/strong&gt;：GitHub 服务器位于海外，网络连接不稳定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对策&lt;/strong&gt;：通过命令行配置 Git 的全局代理（指向 v2rayN 的 10808 端口）：&lt;br /&gt;
+git config --global http.proxy &lt;a href=&#34;http://127.0.0.1:10808&#34;&gt;http://127.0.0.1:10808&lt;/a&gt;&lt;br /&gt;
+ 设置后，推送速度由 0 直接飙升至 20MB/s。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;5-核心代码片段-code-summary&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-核心代码片段-code-summary&#34;&gt;#&lt;/a&gt; 5. 核心代码片段 (Code Summary)&lt;/h2&gt;
+&lt;p&gt;codePython&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 核心逻辑：HSV过滤 + 形态学优化
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+lower_blue = np.array([75, 40, 40]) 
+upper_blue = np.array([115, 255, 255])
+mask = cv2.inRange(hsv, lower_blue, upper_blue)
+
+# 形态学去噪
+kernel = np.ones((5, 5), np.uint8)
+mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+
+# 换色
+res = img.copy()
+res[mask == 255] = (0, 0, 255) # BGR格式：红色
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;6-总结与展望-summary-future-work&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-总结与展望-summary-future-work&#34;&gt;#&lt;/a&gt; 6. 总结与展望 (Summary &amp;amp; Future Work)&lt;/h2&gt;
+&lt;p&gt;今天成功打通了从&lt;strong&gt;环境配置 -&amp;gt; 算法编写 -&amp;gt; Git 版本控制&lt;/strong&gt;的全流程。虽然只是简单的颜色过滤，但它揭示了 CV 处理中最核心的 Mask 思想。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;明天目标&lt;/strong&gt;：从静态图片转向实时视频流，利用帧差法实现摄像头动态物体检测。&lt;/p&gt;
+&lt;p&gt;原图&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/1fsFH7tr&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/15NKyL12/b9082a01-0234-4366-8853-ea7b2f41f50b.png&#34; alt=&#34;b9082a01-0234-4366-8853-ea7b2f41f50b.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;换底后的图&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/qNYXjcWr&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/rpynyQJD/72c889a9-8a48-4de5-b83e-ff56fcc105b6.png&#34; alt=&#34;72c889a9-8a48-4de5-b83e-ff56fcc105b6.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;day-2-笔记从-0-到-1-构建智能安防监控&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#day-2-笔记从-0-到-1-构建智能安防监控&#34;&gt;#&lt;/a&gt; 📝 Day 2 笔记：从 0 到 1 构建智能安防监控&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;1. 项目描述&lt;/strong&gt;&lt;br /&gt;
+利用 OpenCV 的视频流处理能力，基于&lt;strong&gt;帧差法 (Frame Differencing)&lt;/strong&gt; 实现了一个实时运动检测预警系统。能够自动锁定移动目标并进行红框标注。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 核心算法流程&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双帧比对&lt;/strong&gt;：通过 cv2.absdiff 获取两帧图像的像素差异。&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;噪声抑制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#噪声抑制&#34;&gt;#&lt;/a&gt; &lt;strong&gt;噪声抑制&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;cvtColor 转灰度减少计算量。&lt;/li&gt;
+&lt;li&gt;GaussianBlur 抹平摄像头感光噪点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;特征增强&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特征增强&#34;&gt;#&lt;/a&gt; &lt;strong&gt;特征增强&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;threshold 二值化分离运动区域。&lt;/li&gt;
+&lt;li&gt;dilate 膨胀操作让目标区域更完整。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目标提取&lt;/strong&gt;：使用 findContours 锁定物体并绘制矩形框。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;3. 踩坑记录与性能调优（面试必杀技）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;问题&lt;/strong&gt;：初始运行发现屏幕红框乱跳，误报率极高。&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分析&#34;&gt;#&lt;/a&gt; &lt;strong&gt;分析&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;摄像头热噪点导致背景像素微弱波动。&lt;/li&gt;
+&lt;li&gt;身体微小动作导致检测结果碎片化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;解决方案-optimization&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决方案-optimization&#34;&gt;#&lt;/a&gt; &lt;strong&gt;解决方案 (Optimization)&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;增大滤波核&lt;/strong&gt;：将高斯核从 (5,5) 增大至 (21,21)，大幅过滤高频噪声。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态调整面积阈值&lt;/strong&gt;：将 contourArea 过滤上限从 1500 提升至 10000，只针对人体规模的运动进行报警。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增加形态学迭代&lt;/strong&gt;：增加膨胀次数，使碎裂的识别框自动合并。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3 id=&#34;第三部分关于明天day-3-预告&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第三部分关于明天day-3-预告&#34;&gt;#&lt;/a&gt; 第三部分：关于明天（Day 3 预告）&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;明天，我们将进入更 “硬核” 的视觉实战。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;虽然今天的系统能发现 “有东西在动”，但它&lt;strong&gt;分不清那是人、是狗、还是个球&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Day 3：虚拟画笔 —— 颜色追踪与坐标控制&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新高度&lt;/strong&gt;：我们将不再被动地 “监控”，而是主动地 “交互”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;任务&lt;/strong&gt;：你可以拿一个蓝色的盖子（或者任何颜色的物体）在摄像头前挥动，电脑会实时追踪它的轨迹，并让你在屏幕上 “凌空写字”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：HSV 色彩空间的高级应用 + 实时轨迹绘制（这是 AR 增强现实的入门原理）。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2026-06-23T01:23:05.000Z</updated>
+    </entry>
     <entry>
         <id>https://151064.xyz/%E4%BB%93%E9%A2%89%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%BA%94%E7%94%A8.html</id>
         <title>Cangjie</title>
