@@ -4798,6 +4798,24 @@ for 临时变量 in 序列：
 &lt;p&gt;&lt;strong&gt;案例：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;封装一个函数，参数有两个 num1，num2，求两个数的四则运算结果&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://postimg.cc/Yh29xWWz&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/tCWxpdRw/Screen-Shot-2025-12-18-192228-338.png&#34; alt=&#34;Screen-Shot-2025-12-18-192228-338.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;函数的说明文档&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数的说明文档&#34;&gt;#&lt;/a&gt; 函数的说明文档&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def (函数名)参数：
+  “““说明文档的位置”””
+  代码
+  ......
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;查看函数的说明文档：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;help(函数名)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;**list 加下划线的原因：**list 是关键词，加个下划线就没有任何冲突了&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/rDcg1LVx&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/QdKPrXv4/9fb60f35-dacf-43f7-9b14-1c153f82b8a4.png&#34; alt=&#34;9fb60f35-dacf-43f7-9b14-1c153f82b8a4.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;函数嵌套调用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数嵌套调用&#34;&gt;#&lt;/a&gt; 函数嵌套调用&lt;/h4&gt;
+&lt;p&gt;嵌套调用是指在一个函数中，又调用了另一个函数&lt;/p&gt;
+&lt;p&gt;函数调用遵循栈结构，最后被调用的函数最先返回 LIFO（Last In First Out, 后进先出）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/zbF4J90f&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/HxqmtmMb/44bd08b1-abbe-41ff-974b-5aaaa01acd00.png&#34; alt=&#34;44bd08b1-abbe-41ff-974b-5aaaa01acd00.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;逻辑：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://postimg.cc/r0MYYfMF&#34;&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;https://i.postimg.cc/TwDM1ssm/fa777d2f-9adb-4f59-99ca-a0fb301ff3a5.png&#34; alt=&#34;fa777d2f-9adb-4f59-99ca-a0fb301ff3a5.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
         <updated>2025-04-24T15:46:37.000Z</updated>
     </entry>
