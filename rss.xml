@@ -149,16 +149,40 @@ res[mask == 255] = (0, 0, 255) # BGR格式：红色
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h3 id=&#34;第三部分关于明天day-3-预告&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第三部分关于明天day-3-预告&#34;&gt;#&lt;/a&gt; 第三部分：关于明天（Day 3 预告）&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;明天，我们将进入更 “硬核” 的视觉实战。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;虽然今天的系统能发现 “有东西在动”，但它&lt;strong&gt;分不清那是人、是狗、还是个球&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Day 3：虚拟画笔 —— 颜色追踪与坐标控制&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;day-3-笔记人机交互实时颜色追踪虚拟画笔&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#day-3-笔记人机交互实时颜色追踪虚拟画笔&#34;&gt;#&lt;/a&gt; 📝 Day 3 笔记：人机交互 —— 实时颜色追踪虚拟画笔&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;1. 项目目标&lt;/strong&gt;&lt;br /&gt;
+实现一个基于颜色识别的虚拟绘图系统。用户手持特定颜色物体（如蓝色笔盖）在空气中挥动，系统实时捕捉轨迹并绘制在屏幕上。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 核心技术点 (Technical Deep Dive)&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;新高度&lt;/strong&gt;：我们将不再被动地 “监控”，而是主动地 “交互”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;任务&lt;/strong&gt;：你可以拿一个蓝色的盖子（或者任何颜色的物体）在摄像头前挥动，电脑会实时追踪它的轨迹，并让你在屏幕上 “凌空写字”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：HSV 色彩空间的高级应用 + 实时轨迹绘制（这是 AR 增强现实的入门原理）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HSV 动态调优&lt;/strong&gt;：编写了 hsv_tuner.py 调试工具，解决了不同光照下颜色区间漂移的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轨迹连贯性逻辑&lt;/strong&gt;：为了防止物体移动过快产生 “断点”，系统记录了上一帧的中心点坐标 (prev_x, prev_y)，使用 cv2.line 将前后两帧关联。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;画布融合 (Alpha Blending)&lt;/strong&gt;：使用 cv2.addWeighted 将绘图层（Canvas）与原始视频流叠加，实现了半透明的交互界面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;镜像处理&lt;/strong&gt;：利用 cv2.flip (frame, 1) 实现了符合人类本能的 “镜像操作” 逻辑。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;3. 解决的痛点 (Challenges Solved)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;环境干扰背景中存在大量蓝色噪点导致画笔乱飞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境干扰背景中存在大量蓝色噪点导致画笔乱飞&#34;&gt;#&lt;/a&gt; &lt;strong&gt;环境干扰&lt;/strong&gt;：背景中存在大量蓝色噪点导致画笔乱飞。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解决&lt;/em&gt;：通过 GaussianBlur 平滑图像，并设定 contourArea 最小阈值，过滤掉面积过小的杂色干扰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;追踪抖动中心点在物体表面细微跳动&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#追踪抖动中心点在物体表面细微跳动&#34;&gt;#&lt;/a&gt; &lt;strong&gt;追踪抖动&lt;/strong&gt;：中心点在物体表面细微跳动。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解决&lt;/em&gt;：引入形态学开运算（先腐蚀后膨胀），使识别出的 Mask 边缘更加圆润稳定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3 id=&#34;第三部分面试模拟day-3-考点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第三部分面试模拟day-3-考点&#34;&gt;#&lt;/a&gt; 第三部分：面试模拟（Day 3 考点）&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;面试官：&lt;/strong&gt; “你的画笔轨迹是如何生成的？为什么不直接画点？”&lt;br /&gt;
+&lt;strong&gt; 你的专业回答：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“直接在每一帧绘制中心点（Circle）会导致轨迹不连续，尤其是在低帧率或快速移动时。我采用的是&lt;strong&gt;点线连接法&lt;/strong&gt;：维护一个坐标状态机，记录上一帧中心点坐标，只要当前帧检测到目标，就用 cv2.line 将两个坐标相连，从而保证了视觉上的丝滑感和连贯性。”&lt;/p&gt;
+&lt;/blockquote&gt;
  ]]></description>
         </item>
         <item>
